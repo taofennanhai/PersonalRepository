@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import nchu.class162021.service.QuestionService;
 
@@ -20,17 +21,43 @@ public class HomeController {
 	@GetMapping("/")
 	public String CheckApplyTable(Model model) {
 		try {
-			List<String> list = qs.RequestQuestion();
-		    model.addAttribute("question",list);
-			
+			List<String> question = qs.RequestQuestion();
+		    model.addAttribute("question",question);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 			
-	
 		return "Main";
 	}
+	
+	@PostMapping("main")
+	public String Check(Model model , String ans) {
+		String[] list = ans.split(",");
+		
+		try {
+			List<String> question = qs.RequestQuestion();
+			List<String> answer = qs.RequestAnswer();
+		    model.addAttribute("question",question);
+		    model.addAttribute("answer",answer);
+		    
+		    int c=0;
+		    for(int i=0 ; i<list.length ;i++) {
+		    	if(answer.equals(answer)) {
+		    		c++;
+		    	}
+		    }
+		    System.out.println("·ÖÊý£º "+100*c/answer.size());
+		    
+		    model.addAttribute("score",c);
+		    
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "Main";
+	}
+	
 	
 	
 	

@@ -20,7 +20,7 @@ public class QuestionService {
 
 	public List<String> RequestQuestion() throws IOException {
 		
-		File file = new File("question.txt");
+		File file = new File("E:\\work\\question.txt");
 		FileInputStream fis = new FileInputStream(file);
 		DataInputStream dis = new DataInputStream(fis);
 		BufferedReader d  = new BufferedReader(new InputStreamReader(fis));
@@ -29,7 +29,21 @@ public class QuestionService {
 		String str;
 		while((str = d.readLine())!=null) {
 			list.add(str);
-			System.out.println(str);	
+		}
+		return list;
+	}
+	
+	public List<String> RequestAnswer() throws IOException {
+		
+		File file = new File("E:\\work\\answer.txt");
+		FileInputStream fis = new FileInputStream(file);
+		DataInputStream dis = new DataInputStream(fis);
+		BufferedReader d  = new BufferedReader(new InputStreamReader(fis));
+		List<String> list = new ArrayList<String>();
+		
+		String str;
+		while((str = d.readLine())!=null) {
+			list.add(str);
 		}
 		return list;
 	}

@@ -20,15 +20,15 @@
           <section class="login_content">
             <form action='main' method='post'>
 
-              <div th:each="q:">
-                <input name="id" type="text" class="form-control" placeholder="Question" disabled/>
-                <input name="password" type="password" class="form-control" placeholder="Answer" />
+              <div th:each = "s : ${question}">
+                <input name="id" type="text" class="form-control" placeholder="Question" th:value="${s}" disabled/>
+                <input name="ans" type="text" class="form-control" placeholder="Answer" />
               </div>
-           
               
               <div>
               	<br>
                 <input type="submit" style="width:15%; matgin:0 auto" class="btn btn-default submit"  value ="submit"/>
+              	<input name="id" type="text" class="form-control" placeholder="Score" th:if="${score}!=null" th:value="${score}" disabled/>
               </div>
 
               <div class="clearfix"></div>
