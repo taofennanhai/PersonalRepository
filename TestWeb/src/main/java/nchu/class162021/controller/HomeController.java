@@ -49,7 +49,7 @@ public class HomeController {
 		    }
 		    System.out.println("·ÖÊý£º "+100*c/answer.size());
 		    
-		    model.addAttribute("score",c);
+		    model.addAttribute("score",100*c/answer.size());
 		    
 		} catch (IOException e) {
 			e.printStackTrace();
